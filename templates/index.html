@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="/static/css/animate.css">
+	<title>星空首页</title>
+	<style >
+		*{margin:0;padding: 0;}
+		body{background: url('/static/sky_img.jpg') no-repeat;background-size: cover;}
+		a{text-decoration: none;color: #fff}
+		.header{margin-top: 40px;font-family: 隶书;font-size: 20px;height: 80px;}
+		.header_left{margin-left: 80px;float: left;color: #fff;margin-top: -15px;}
+		.header_leftzimu{font-size: 40px;font-style: italic;}
+		.header_leftwenzi{font-style: italic;}
+		.main{margin-right: 80px;float: right;}
+		.pic{margin-right: 40px;float: right;}
+		.planet{margin-right: 40px;float: right;}
+		.star{margin-right: 40px;float: right;}
+		.starworld{margin-top: 60px;float: left;width: 50%;color: #fff;margin-left: 100px;text-indent: 20px;}
+		.starstate{font-size: 20px;font-family: 楷体}
+		.example{margin-top: 40px;float: left;width: 100%}
+		.exampleimg{width: 30%;height: 30%;border-radius: 10px;margin-left: 20px;}
+		.example span{margin-top: 120px;float: left;font-size: 20px;font-family: 楷体}
+		.words{font-size: 25px;font-style: italic;font-family: 楷体;margin-top: 40px;float: left;text-align: center;width: 100%;animation: tada 1s infinite}
+
+		.websta{width: 12%;margin-right: 120px;color: #fff;float: right;font-size: 25px;font-style: italic;font-family: 楷体;text-align: center;}
+
+		.v-enter,.v-leave-to{opacity: 0;transform: translateY(120px);}
+		.v-enter-active,.v-leave-active{transition: all 8s ease}
+        .fangkui{width: 40%;float: right;margin-right: 80px;color: beige;font-family: 华文楷体;}
+	</style>
+	<script src="/static/js/vue.min.js"></script>
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<div id="q1" @mousemove="move">
+	<div class="header">
+		<div class="header_left"><span class="header_leftzimu">S</span><span class="header_leftwenzi">星空</span></div>
+		<div class="main"><a href="/sky/earth/">首页</a></div>
+		<div class="pic"><a href="#">星系</a></div>
+		<div class="planet"><a href="#">行星</a></div>
+		<div class="star"><a href="#">星云</a></div>
+	</div>
+
+	<div class="starworld">
+		<span class="starstate">行星：<br>  太阳系一共拥有八颗大行星和一颗矮行星。八大行星是: 金星,木星,水星,火星,土星,地球,天王星,海王星。 矮行星是冥王星<br> &emsp;恒星和星云：<br>夜晚我们肉眼可见的星星，他们的绝大多数就是恒星，恒星就是像太阳一样本身能发光发热的星球。&emsp;星云：由星际空间的气体和尘埃结合成的云雾状天体。星云通常也是恒星形成的区域，例如：鹰星云 </span>
+		<br>
+
+		<div class="example">
+			<span>鹰星云：</span>
+			<img class="exampleimg" src="/static/nebula/鹰星云1.jpg">
+			<img class="exampleimg" src="/static/nebula/鹰星云2.jpg">
+		</div>
+		<span class="words "><a href="/sky/planet">进入查看八大行星>>></a></span>
+
+	</div>
+        <div id="outerdiv" style="position: relative;display: none;background-size: 100% 100%;top: 0;left: 0;background: rgba(0,0,0,0.5);z-index: 999">
+            <div id="innerdiv" style="position: absolute;top: 25%;left:20%">
+                <img id="bigimg" style="border:3px solid #fff;z-index: 9999" src="">
+            </div>
+        </div>
+
+	<div class="websta">
+		<span style="font-size: 30px;margin-top: 110px;float: right;margin-right: 18%;font-family: 隶书">
+			本站简介
+		</span>
+		<!-- 内容简介 -->
+		<transition >
+			<span style="text-indent: 20px;margin-top: 20px;float: left;" v-text="msg" v-if="flag"></span>
+
+		</transition>
+	</div>
+    <div class="fangkui">
+        <span>该网站就是自己个人写的，所有有太多太多不足，还希望大家见谅。大家可以向我提出建议，比如界面，网页内容等等。<br> <span id="qq" style="display: none;font-family: 微软雅黑">QQ：601337784</span></span>
+    </div>
+
+
+    </div>
+
+	<script type="text/javascript">
+
+		//禁止ctrl + (+/-)
+		document.addEventListener('keydown', function (event) {
+			if ((event.ctrlKey === true || event.metaKey === true)
+		       && (event.which === 61 || event.which === 107
+		          || event.which === 173 || event.which === 109
+		          || event.which === 187 || event.which === 189)){
+		            event.preventDefault();
+		     }
+		}, false);
+
+		//禁止ctrl + 鼠标滚动
+		document.addEventListener('DOMMouseScroll', function (event) {
+			  if (event.ctrlKey === true || event.metaKey) {
+			    event.preventDefault();
+			  }
+		}, false);
+
+		document.addEventListener('mousewheel', function (event) {
+			  if (event.ctrlKey === true || event.metaKey) {
+			    event.preventDefault();
+			  }
+		}, {passive:false});
+
+		
+		var vs=new Vue({
+			el:'#q1',
+			data:{
+				msg:'希望喜欢天文但是又没好好去了解过的以及对天文压根就没了解过的人会喜欢上天文，也希望更多的天文爱好者也能喜欢该网站' ,
+
+				i:0,
+				flag:false,
+
+			},
+			methods:{
+				move(){
+						if(this.i==1){
+							this.flag=true
+					}
+					this.i++;
+				}
+			},
+		});
+
+        var zhi=true;
+        $('.exampleimg').click(function () {
+            var _this=$(this);
+            imgShow('#outerdiv','#innerdiv','#bigimg',_this);
+
+            if(zhi) {
+
+            }else{
+                $("#bigimg").click(function () {//再次点击淡化弹出
+                    $(this).hide();
+                    zhi=true;
+
+                });
+            }
+        });
+
+        //点击图片放大
+        function imgShow(outdiv,innerdiv,bigimg,_this){
+		    var src=_this.attr("src");
+            var imgH,imgW;
+            var winH=$(window).height();
+            var winW=$(window).width();
+            var scale=0.6 ; //缩放比例
+            imgH=winH*scale;
+            imgW=winW*scale;
+            $(bigimg).attr('width',imgW);
+            $(bigimg).attr('height',imgH);
+            $(bigimg).attr('src',src);
+
+            if(zhi) {
+                $(outdiv).show();
+                zhi=false;
+
+                $(bigimg).show();
+            }
+        }
+
+        //实现qq触摸显示
+        $('.fangkui').mouseover(function () {
+            $('#qq').show()
+        });
+        $('.fangkui').mouseout(function () {
+            $('#qq').hide()
+        })
+
+	</script>
+
+</body>
+</html>

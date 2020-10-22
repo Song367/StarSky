@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>太阳系</title>
+    <style>
+        body{background-color: #333;}
+        a{text-decoration: none;color: #ffffff}
+        .header{margin-top: 40px;font-family: 隶书;font-size: 20px;height: 80px;}
+		.header_left{margin-left: 80px;float: left;color: #fff;margin-top: -15px;}
+		.header_leftzimu{font-size: 40px;font-style: italic;}
+		.header_leftwenzi{font-style: italic;}
+		.main{margin-right: 80px;float: right;}
+		.pic{margin-right: 40px;float: right;}
+		.planet{margin-right: 40px;float: right;}
+		.star{margin-right: 40px;float: right;}
+
+        .whole{width: 100%;position: relative;font-family: 楷体}
+        .five{background-color: #6B8E23;width: 400px;height: 600px;z-index: 99999;position: absolute;top: 0%;left: 41%}
+        .four{background-color: #B22222;width: 260px;height:460px;position: absolute;left: 32%;top: 4%;z-index: -1;opacity: 0.4;font-size: 5%}
+        .three{background-color: #00BFFF;width: 260px;height:460px;position: absolute;left: 22%;top: 4%;z-index: -9;opacity: 0.4;font-size: 5%}
+        .two{background-color: #FFD700;width: 260px;height:460px;position: absolute;left: 13%;top: 4%;z-index: -99;opacity: 0.4;font-size: 5%}
+        .six{background-color: #B8860B;width: 260px;height: 460px;position: absolute;left: 56%;top: 4%;z-index: -1;opacity: 0.4;font-size: 5%}
+        .seven{background-color: #f5dab1;width: 260px;height:460px;position: absolute;left: 68%;top: 4%;z-index: -9;opacity: 0.4;font-size: 5%}
+        .eight{background-color: #fbc4c4;width: 260px;height:460px;position: absolute;left: 78%;top: 4%;z-index: -99;
+            opacity: 0.4; font-size: 5%}
+        .one{background-color:#20B2AA;width: 260px;height:460px;position: absolute;left: 6%;top: 4%;z-index: -999;opacity: 0.4;font-size: 5%}
+        img{width: 100%;}
+        .planetstate{text-indent: 2em;margin:10px}
+    </style>
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/vue.min.js"></script>
+</head>
+<body>
+    <div class="header">
+		<div class="header_left"><span class="header_leftzimu">S</span><span class="header_leftwenzi">星空</span></div>
+		<div class="main"><a href="#">首页</a></div>
+		<div class="pic"><a href="#">星系</a></div>
+		<div class="planet"><a href="#">行星</a></div>
+		<div class="star"><a href="#">星云</a></div>
+	</div>
+    <div class="whole" >
+        <div class="one" >
+            <div >
+                <img  src="/media/shy_img/planet_img/shuixing.jpg" id="i1" height="100px;">
+            </div>
+            <div class="planetstate" id="p1">
+
+            </div>
+        </div>
+        <div class="two" >
+            <div >
+                <img  src="/media/shy_img/planet_img/shuixing.jpg" id="i2" height="100px;">
+            </div>
+            <div class="planetstate" id="p2">
+
+            </div>
+        </div>
+        <div class="three">
+            <div >
+                <img  src="/media/shy_img/planet_img/shuixing.jpg" id="i3" height="100px;">
+            </div>
+            <div class="planetstate" id="p3">
+
+            </div>
+        </div>
+        <div class="four">
+            <div >
+                <img  src="/media/shy_img/planet_img/shuixing.jpg" id="i4" height="100px;">
+            </div>
+            <div class="planetstate" id="p4">
+
+            </div>
+        </div>
+        <div class="five">
+            <div >
+                <img src="/media/shy_img/planet_img/shuixing.jpg" id="i5" height="240px;">
+            </div>
+            <div class="planetstate" id="p5">
+                海王星对肉眼呈蓝色，海王星的大气层的化学组成以氢分子和氦为主。此外，海王星大气中还有微量的甲烷，这是使行星呈蓝色的原因之一
+海王星是太阳系里的第四大行星，但却是四个充满气体的行星之中最小的一个。海王星有太阳系最强烈的风，测量到的时速高达2100公里。
+海王星在类木行星中的一个独有特点就是高层云彩在其下半透明的云基区域投下阴影。
+海王星也有光环。在地球上只能观察到暗淡模糊的圆弧，而非完整的光环。但旅行者2号的图像显示这些弧完全是由亮块组成的光环。其中的一个光环看上去似乎有奇特的螺旋形结构。
+肉眼看不到海王星，在天文望远镜或优质的双筒望远镜中，海王星显现为一个小小的蓝色圆盘，看上去与天王星很相似。
+            </div>
+        </div>
+        <div class="six">
+            <div >
+                <img  src="/media/shy_img/planet_img/shuixing.jpg" id="i6" height="100px;">
+            </div>
+            <div class="planetstate"  id="p6">
+
+            </div>
+        </div>
+        <div class="seven">
+            <div >
+                <img  src="/media/shy_img/planet_img/shuixing.jpg" id="i7" height="100px;">
+            </div>
+            <div class="planetstate"  id="p7">
+
+            </div>
+        </div>
+        <div class="eight">
+            <div >
+                <img  src="/media/shy_img/planet_img/shuixing.jpg" id="i8" height="100px;">
+            </div>
+            <div class="planetstate"  id="p8">
+
+            </div>
+        </div>
+    </div>
+<script>
+
+
+    //鼠标滚动事件
+    var i=5;
+    var math=['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
+    $.ajax({
+        type:'GET',
+        url:'/sky/planetdata/',
+        success:function (data) {
+            var data=data['data'];
+            console.log(data);
+            for (var j=0;j<data.length;j++){
+                var classname='#'+'p'+(j+1);
+                var imgname='#'+'i'+(j+1);
+
+                var img='/media/'+data[j]['planet_pic'];
+                $(imgname).attr('src',img);
+                $(classname).html(data[j]['planet_state'])
+            }
+        }
+    });
+
+
+    $('.whole').bind('mousewheel DOMMouseScroll' ,function (event) {
+
+        var wheel=event.originalEvent.wheelDelta;//谷歌浏览器的鼠标 mousewheel
+        var datal=event.originalEvent.detail;//火狐浏览器 DOMMouseScroll
+
+
+        if(wheel){
+            if (wheel>0){//上滚
+                //缩小
+                var classname1='.'+math[i-1];
+                $(classname1).css({'width':260+'px','height':460+'px','zIndex':-1,'opacity':0.4,'top':4+'%'});
+                $(classname1).css('fontSize','10px');
+                var imgid='#'+'i'+i;
+
+                $(imgid).css('height','100px');
+
+
+                if(i>0&&i!=0) {
+                    i--;
+                }
+                if (i>0) {//是文本框变大
+                    for (var j = 0; j < this.children.length; j++) {
+
+                        if (math[i - 1] === this.children[j].className) {
+                            var classname='.'+this.children[j].className;//拼接当前元素的类 便于后面获取该类
+
+                            $(classname).css({'width':400+'px','height':700+'px','zIndex':999,'opacity':1,'top':0});
+                            var index=math.indexOf(this.children[j].className)+1;
+                            var imgid2='#'+'i'+(j+1);
+                            if(i==index) {
+                                console.log(imgid2);
+                                $(imgid2).css('height','240px');
+                                $(classname).css('fontSize', '16px');
+
+                            }
+                        }
+                    }
+                }else{
+                    return false
+                }
+
+            }
+            if (wheel<0){
+                //缩小
+                var classname1='.'+math[i-1];
+                $(classname1).css({'width':260+'px','height':460+'px','zIndex':-1,'opacity':0.4,'top':4+'%'});
+                $(classname1).css('fontSize','10px');
+                //缩小时图片高度
+                var imgid='#'+'i'+i;
+                $(imgid).css('height','100px');
+                if (i<8) {//是文本框变大
+                    i++;
+                    for (var j = 0; j < this.children.length; j++) {
+
+                        if (math[i - 1] === this.children[j].className) {
+                            var classname='.'+this.children[j].className;//拼接当前元素的类 便于后面获取该类
+                            if(i===8){
+                                $(classname).css({'width':400+'px','height':700+'px','zIndex':999,'opacity':1,'top':0,'left':73+'%'})
+                            }
+                            $(classname).css({'width':400+'px','height':700+'px','zIndex':999,'opacity':1,'top':0})
+                            var index=math.indexOf(this.children[j].className)+1;
+                            //放大时图片和文字
+                            var imgid2='#'+'i'+(j+1);
+                            if(i==index) {
+                                $(imgid2).css('height','240px');
+                                $(classname).css('fontSize', '16px')
+                            }
+                        }
+                    }
+
+                }else{
+                    return false
+                }
+            }
+
+        }else if (datal){
+            if (datal>0){//下滚
+
+            }
+            if(datal<0){}
+
+        }
+
+    })
+
+
+</script>
+</body>
+</html>
